@@ -18,7 +18,7 @@ input.addEventListener("input", textFilter);
 form.addEventListener("submit", onSubmit);
 
 const findUniqLetter = (someText) => {
-  let splitedText = someText.split(" ");
+  let splitedText = someText.trim().split(" ");
 
   const ArrWithLetters = [];
 
@@ -47,13 +47,13 @@ const findUniqLetter = (someText) => {
     returnLetterOnHerPlace(index, item);
   });
 
-  const markup = `<p class="value">${
-    uniqLetter[0]
-    // uniqLetter === undefined
-    //   ? uniqLetter[0]
-    //   : "Немає унікальних літер,  спробуйте інше речення"
-  }</p>`;
+  const markup = `<p class="value">${uniqLetter[0]}</p>`;
   outputContainer.innerHTML = markup;
 
   return uniqLetter;
 };
+
+const text =
+  'The Tao gave birth to machine language. Machine language gave birth to the assembler. The assembler gave birth to the compiler. Now there are ten thousand languages. Each language has its purpose, however humble. Each language expresses the Yin and Yang of software. Each language has its place within the Tao. But do not program in COBOL if you can avoid it. -- Geoffrey James, "The Tao of Programming ';
+
+console.log(findUniqLetter(text));
